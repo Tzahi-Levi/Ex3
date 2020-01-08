@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/UniqueArray.h
+functional
+-
+UniqueArrayImp.h
+/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/UniqueArrayImp.h
+
+/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/UniqueArrayImp.h
+functional
+-
+
+/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/tests/UniqueArrayTest.cpp
+cassert
+-
+functional
+-
+iostream
+-
+../UniqueArray.h
+/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/UniqueArray.h
+
