@@ -8,7 +8,7 @@
 #include <functional>
 
 template <class Element, class Compare>
-UniqueArray<Element, Compare>::UniqueArray(unsigned int size) : size(size), nextIndex(0), currentNumberOfElements(0),
+UniqueArray<Element, Compare>::UniqueArray(unsigned int size) : size(size),nextIndex(0), currentNumberOfElements(0),
                                                                 dataInfo(new bool[size]), data(new Element*[size]){
     for (int i=0; i<size ; i++){
         dataInfo[i] = false;
@@ -36,9 +36,9 @@ UniqueArray<Element, Compare>::~UniqueArray(){
 
 template <class Element, class Compare>
 unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
-
+    Compare cmp ={};
     for (unsigned int i=0; i<nextIndex; i++) { //This loop checks if the element is already exist (and didn't removed)
-        if (dataInfo[i] and Compare(*data[i], element)) {
+        if (dataInfo[i] and cmp(*data[i], element)) {
             return i;
         }
     }
@@ -60,8 +60,9 @@ unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
 }
 template <class Element, class Compare>
 bool UniqueArray<Element, Compare>::getIndex(const Element& element, unsigned int& index) const{
+    Compare cmp = {};
     for (unsigned int i=0; i<nextIndex ; i++) {
-        if (Compare(*data[i], element)) {
+        if (cmp(*data[i], element)) {
             index = i;
             return true;
         }
@@ -71,7 +72,7 @@ bool UniqueArray<Element, Compare>::getIndex(const Element& element, unsigned in
 
 template <class Element, class Compare>
 const Element* UniqueArray<Element, Compare>::operator[](const Element& element) const {
-    int tempIndex = 0;
+    unsigned int tempIndex;
     if(getIndex(element,tempIndex)){
         return data[tempIndex];
     }
@@ -80,8 +81,9 @@ const Element* UniqueArray<Element, Compare>::operator[](const Element& element)
 
 template <class Element, class Compare>
 bool UniqueArray<Element, Compare>::remove(const Element& element){
+    Compare cmp = {};
     for (int i = 0; i <nextIndex ; ++i) {
-        if(dataInfo[i] and Compare(*data[i], element)) {
+        if(dataInfo[i] and cmp(*data[i], element)) {
             dataInfo[i] = false;
             currentNumberOfElements--;
             return true;

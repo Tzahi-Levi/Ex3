@@ -3,7 +3,7 @@
 
 #include <functional>
 
-template <class Element, class Compare= std::equal_to<Element>>
+template <class Element, class Compare = std::equal_to<Element>>
 class UniqueArray {
     unsigned int size;
     Element** data;
@@ -11,7 +11,6 @@ class UniqueArray {
     int nextIndex;
     int currentNumberOfElements;
 public:
-
     UniqueArray(unsigned int size);
     UniqueArray(const UniqueArray& other);
     ~UniqueArray();
