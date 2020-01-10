@@ -21,6 +21,7 @@ public:
     bool remove(const Element& element);
     unsigned int getCount() const;
     unsigned int getSize() const;
+    bool insertByIndex(const Element& element, unsigned int index);
 
     class Filter {
     public:

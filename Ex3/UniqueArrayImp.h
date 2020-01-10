@@ -20,7 +20,6 @@ UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other) : size(othe
                                                                        dataInfo(new bool[other.size]), data(new Element*[other.size]) {
     for (int i=0; i<nextIndex; i++){
         dataInfo[i] = other.dataInfo[i];
-        //TODO מניחים שיש פה אופרטור השמה לאלמנט האם זה בסדר?
         *data[i] = *other.data[i];
     }
     for (int i=nextIndex; i<size; i++) {
@@ -37,32 +36,30 @@ UniqueArray<Element, Compare>::~UniqueArray(){
 template <class Element, class Compare>
 unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
     Compare cmp ={};
-    for (unsigned int i=0; i<nextIndex; i++) { //This loop checks if the element is already exist (and didn't removed)
-        if (dataInfo[i] and cmp(*data[i], element)) {
+    for (unsigned int i=0; i<size; i++) { //This loop checks if the element is already exist (and didn't removed)
+        if (dataInfo[i] and cmp(*(data[i]), element)) {
             return i;
         }
     }
-    for (unsigned int i=0; i<nextIndex; i++) {//This loop checks if there is a free place inside the array (not at the end)
+    for (unsigned int i=0; i<size; i++) {//This loop checks if there is a free place inside the array (not at the end)
         if(!dataInfo[i]){
-            //TODO יש פה הנחה שיש אופרטור השמה
-            *data[i] = element;
+            data[i] = const_cast<Element*>(&element);
             dataInfo[i] = true;
             currentNumberOfElements++;
             return i;
         }
     }
-    if(nextIndex>=size){
-        throw UniqueArrayIsFullException();
-    }
-    dataInfo[nextIndex] = true;
-    currentNumberOfElements++;
-    return nextIndex++;
+    throw UniqueArrayIsFullException();
 }
 template <class Element, class Compare>
 bool UniqueArray<Element, Compare>::getIndex(const Element& element, unsigned int& index) const{
     Compare cmp = {};
-    for (unsigned int i=0; i<nextIndex ; i++) {
-        if (cmp(*data[i], element)) {
+    for (unsigned int i=0; i<size ; i++) {
+        //TODO remove the non-relevant print
+        std::cout << "Check Here!" << std::endl;
+        if (cmp(*(data[i]), element)) {
+            //TODO remove the non-relevant print
+           // std::cout << "Check Here!" << std::endl;
             index = i;
             return true;
         }
@@ -100,4 +97,26 @@ unsigned int UniqueArray<Element, Compare>::getSize() const {
     return size;
 }
 
+template <class Element, class Compare>
+bool UniqueArray<Element,Compare>::insertByIndex(const Element& element, unsigned int index){
+    if(index < size and !dataInfo[index]){
+        *data[index] = element;
+        dataInfo[index] = true;
+        currentNumberOfElements++;
+        nextIndex = index + 1;
+        return true;
+    }
+    return false;
+}
+
+template <class Element, class Compare>
+UniqueArray<Element,Compare> UniqueArray<Element,Compare>::filter(const Filter& f) const{
+    UniqueArray<Element,Compare> filteredUA = UniqueArray<Element,Compare>(size);
+    for(unsigned int i=0; i<size; i++){
+        if(f(*data[i])){
+            filteredUA.insertByIndex(*data[i], i);
+        }
+    }
+    return filteredUA;
+}
 #endif //EX3_UNIQUEARRAYIMP_H
