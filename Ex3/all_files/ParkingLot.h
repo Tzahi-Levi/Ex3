@@ -27,12 +27,10 @@ namespace MtmParkingLot {
 		CarArray carLot;
 		CarArray bikeLot;
 		CarArray handicappedLot;
-		CarArray finedCars;
 
-		ParkingResult enterHandicapped(LicensePlate licensePlate, Time entranceTime);
-		ParkingResult enterNormalCar(LicensePlate licensePlate, Time entranceTime);
-		ParkingResult enterMotorbike(LicensePlate licensePlate, Time entranceTime);
-
+		ParkingResult enterHandicapped(Vehicle newCar, Time entranceTime);
+		ParkingResult enterNormalCar(Vehicle newCar, Time entranceTime);
+		ParkingResult enterMotorbike(Vehicle newCar, Time entranceTime);
     };
 	
 }
