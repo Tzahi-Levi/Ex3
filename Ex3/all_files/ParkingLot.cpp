@@ -8,8 +8,8 @@ ParkingLot::ParkingLot(unsigned int parkingBlockSizes[]) :
 {}
 
 ParkingLot::~ParkingLot() {
-	
 }
+
 ParkingResult ParkingLot::getParkingSpot(LicensePlate licensePlate, ParkingSpot& parkingSpot) const {
 	Vehicle newCar = Vehicle(licensePlate, Time(),CAR);
 	unsigned int index = 0;
