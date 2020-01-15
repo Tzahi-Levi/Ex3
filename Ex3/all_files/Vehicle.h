@@ -45,7 +45,7 @@ public:
 		return plate == other.plate;
 	}
 
-	int  getPrice(Time leaveTime) {
+	int  getPrice(Time leaveTime) const {
 		Time stayTime = leaveTime - entryTime;
 		unsigned int fine = 0;
 		if (fined) {
@@ -60,7 +60,7 @@ public:
 		return fine + firstHourParkingRate + (stayTime.toHours() - 1) * generalParkingRate;
 	}
 
-	Time getEntryTime() {
+	Time getEntryTime() const {
 		return entryTime;
 	}
 	
