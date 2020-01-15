@@ -69,6 +69,10 @@ namespace ParkingLotUtils {
             return plate;
         }
 
+        VehicleType getType() const {
+            return type;
+        }
+
         ostream &printVehicle(ostream &os) const {
             return (ParkingLotPrinter::printVehicle(os, type, plate, entryTime));
         }
