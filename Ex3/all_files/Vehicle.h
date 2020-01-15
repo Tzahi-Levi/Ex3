@@ -1,4 +1,3 @@
-
 #ifndef  VEHICLE_H_
 #define VEHICLE_H_
 
@@ -9,58 +8,69 @@
 #include "ParkingLotPrinter.h"
 using namespace ParkingLotUtils;
 class Vehicle {
-protected:
+private:
 	int firstHourParkingRate;
 	int generalParkingRate;
 	Time entryTime;
 	LicensePlate plate;
 	VehicleType type;
+	bool fined;
 
-public:	
-	Vehicle	(LicensePlate plate, Time entrytime, VehicleType carType) : plate(plate),
-			firstHourParkingRate(0), generalParkingRate(0), entryTime(entrytime), type(carType)
-			{
-	            if(type==CAR){
-	                this->firstHourParkingRate=20;
-	                this->generalParkingRate=10;
-	            }
-                if(type==HANDICAPPED){
-                    this->firstHourParkingRate=15;
-                    this->generalParkingRate=0;
-                }
-                this->firstHourParkingRate=10;
-                this->generalParkingRate=5;
-			};
+public:
+	static const int FINE_COST = 250;
+	static const int MAX_PAYING_HOURS = 6;
+	static const int CAR_INITIAL = 20;
+	static const int CAR_PER_HOUR = 10;
+	static const int HANDICAPPED_INITIAL = 15;
+	static const int HANDICAPPED_PER_HOUR = 0;
+	static const int MOTORBIKE_INITIAL = 10;
+	static const int MOTORBIKE_PER_HOUR = 5;
 
-	bool operator==(Vehicle& other) {
+	Vehicle(LicensePlate plate, Time entrytime, VehicleType carType) : plate(plate),
+		firstHourParkingRate(0), generalParkingRate(0), entryTime(entrytime), type(carType),fined(false)
+	{
+		if (type == CAR) {
+			this->firstHourParkingRate = CAR_INITIAL;
+			this->generalParkingRate = CAR_PER_HOUR;
+		}
+		if (type == HANDICAPPED) {
+			this->firstHourParkingRate = HANDICAPPED_INITIAL;
+			this->generalParkingRate = HANDICAPPED_PER_HOUR;
+		}
+		this->firstHourParkingRate = MOTORBIKE_INITIAL;
+		this->generalParkingRate = MOTORBIKE_PER_HOUR;
+	};
+
+	bool operator==(const Vehicle& other)const  {
 		return plate == other.plate;
 	}
 
-	int  getPrice(Time leaveTime);
+	int  getPrice(Time leaveTime) {
+		Time stayTime = leaveTime - entryTime;
+		unsigned int fine = 0;
+		if (fined) {
+			fine = FINE_COST;
+		}
+		if (stayTime.toHours() == 1) {
+			return firstHourParkingRate+fine;
+		}
+		if (stayTime.toHours() > MAX_PAYING_HOURS-1) {// at least 6
+			return fine + firstHourParkingRate + 5 * generalParkingRate;
+		}
+		return fine + firstHourParkingRate + (stayTime.toHours() - 1) * generalParkingRate;
+	}
 
 	Time getEntryTime() {
 		return entryTime;
 	}
-	Vehicle(const Vehicle& other):
-		firstHourParkingRate(other.firstHourParkingRate),
-		generalParkingRate(other.generalParkingRate),
-		entryTime(other.entryTime),
-		plate(other.plate),
-		type(other.type)
-    {};
-	virtual ostream& printVehicle(ostream& os) {
+	
+	ostream& printVehicle(ostream& os)const {
 		return (ParkingLotPrinter::printVehicle(os, type, plate, entryTime));
 	}
-};
-int Vehicle::getPrice(Time leaveTime) {
-	Time stayTime = leaveTime - entryTime;
 
-	if (stayTime.toHours() == 1) {
-		return firstHourParkingRate;
+	void fine() {
+		fined = true;
 	}
-	if (stayTime.toHours() > 5) {// at least 6
-		return firstHourParkingRate + 5 * generalParkingRate;
-	}
-	return firstHourParkingRate + (stayTime.toHours() - 1) * generalParkingRate;
-}
-#endif //  VEHICLE_H_
+};
+
+#endif //  VEHICLE_H_ 
