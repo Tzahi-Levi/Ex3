@@ -122,7 +122,7 @@ bool UniqueArray<Element, Compare>::isFull() const {
 	return true;
 }
 template <class Element, class Compare>
- Element* UniqueArray<Element, Compare>::getElementAtIndex(int index) {
+Element * UniqueArray<Element, Compare>::getElementAtIndex(unsigned int index) const {
 	if (dataInfo[index] == false) {
 		return NULL;
 	}

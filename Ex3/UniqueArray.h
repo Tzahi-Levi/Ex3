@@ -22,7 +22,7 @@ public:
 	unsigned int getCount() const;
 	unsigned int getSize() const;
 	bool isFull() const;
-	Element* getElementAtIndex(int index);
+	Element * getElementAtIndex(unsigned int index) const ;
 
 
 	class Filter {

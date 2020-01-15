@@ -1,1 +1,1 @@
-C:/cygwin64/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.o  -o Ex3.exe -Wl,--out-implib,libEx3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+C:/cygwin64/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.o CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.o CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.o CMakeFiles/Ex3.dir/all_files/Time.cpp.o CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.o  -o Ex3.exe -Wl,--out-implib,libEx3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

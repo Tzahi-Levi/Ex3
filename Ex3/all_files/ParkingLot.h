@@ -4,7 +4,7 @@
 #include "ParkingLotTypes.h"
 #include "Time.h"
 #include "ParkingSpot.h"
-#include "UniqueArray.h"
+#include "../UniqueArray.h"
 #include "Vehicle.h"
 
 namespace MtmParkingLot {
