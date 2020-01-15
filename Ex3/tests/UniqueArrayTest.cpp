@@ -45,8 +45,6 @@ static void testIntP() {
     unsigned int index1;
     unsigned int index2;
     assert(ua1.getIndex(&array[0], index1));
-    //TODO remove the non-relevant ptrint
-    std::cout << "HELLO!!!" << std::endl;
     assert(ua2.getIndex(&array[0], index2));
     assert(index1 == index2);
     // Test operator[]
@@ -66,6 +64,7 @@ static void testIntP() {
     assert(filtered.getCount() == 3);
     assert(!filtered.getIndex(&array[4], index1)); // & of 35
     assert(filtered.getIndex(&array[2], index1)); // & of 17
+    delete[] array;
 }
 
 static void testInt() {
@@ -95,13 +94,8 @@ static void testInt() {
 
 int main() {
     #ifndef NDEBUG
-        std::cout << "TEST #1" << std::endl;
         testInt();
-        std::cout << "TEST #1 PASSED" << std::endl;
-        std::cout << "TEST #2" << std::endl;
         testIntP();
-        std::cout << "TEST #2 PASSED" << std::endl;
-        std::cout << "TEST #3" << std::endl;
         testPoint();
         std::cout << "All tests finished successfully!" << std::endl;
     #endif
