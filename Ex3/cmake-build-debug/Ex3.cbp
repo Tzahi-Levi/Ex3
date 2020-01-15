@@ -86,7 +86,37 @@
 		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/UniqueArrayImp.h">
 			<Option target="Ex3"/>
 		</Unit>
-		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/tests/UniqueArrayTest.cpp">
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/MtmParkingLot.cpp">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLot.cpp">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLot.h">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLotPrinter.cpp">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLotPrinter.h">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLotTypes.h">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingSpot.cpp">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingSpot.h">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/Time.cpp">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/Time.h">
+			<Option target="Ex3"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/Vehicle.h">
 			<Option target="Ex3"/>
 		</Unit>
 		<Unit filename="/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/CMakeLists.txt">

@@ -4,7 +4,7 @@
 #include "ParkingLotTypes.h"
 #include "Time.h"
 #include "ParkingSpot.h"
-#include "UniqueArray.h"
+#include "../UniqueArray.h"
 #include "Vehicle.h"
 
 namespace MtmParkingLot {
@@ -31,7 +31,6 @@ namespace MtmParkingLot {
 		ParkingResult enterHandicapped(Vehicle newCar, Time entranceTime);
 		ParkingResult enterNormalCar(Vehicle newCar, Time entranceTime);
 		ParkingResult enterMotorbike(Vehicle newCar, Time entranceTime);
-
     };
 	
 }

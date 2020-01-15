@@ -123,32 +123,140 @@ Ex3/fast:
 	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/build
 .PHONY : Ex3/fast
 
-tests/UniqueArrayTest.o: tests/UniqueArrayTest.cpp.o
+all_files/MtmParkingLot.o: all_files/MtmParkingLot.cpp.o
 
-.PHONY : tests/UniqueArrayTest.o
+.PHONY : all_files/MtmParkingLot.o
 
 # target to build an object file
-tests/UniqueArrayTest.cpp.o:
-	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.o
-.PHONY : tests/UniqueArrayTest.cpp.o
+all_files/MtmParkingLot.cpp.o:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.o
+.PHONY : all_files/MtmParkingLot.cpp.o
 
-tests/UniqueArrayTest.i: tests/UniqueArrayTest.cpp.i
+all_files/MtmParkingLot.i: all_files/MtmParkingLot.cpp.i
 
-.PHONY : tests/UniqueArrayTest.i
+.PHONY : all_files/MtmParkingLot.i
 
 # target to preprocess a source file
-tests/UniqueArrayTest.cpp.i:
-	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.i
-.PHONY : tests/UniqueArrayTest.cpp.i
+all_files/MtmParkingLot.cpp.i:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.i
+.PHONY : all_files/MtmParkingLot.cpp.i
 
-tests/UniqueArrayTest.s: tests/UniqueArrayTest.cpp.s
+all_files/MtmParkingLot.s: all_files/MtmParkingLot.cpp.s
 
-.PHONY : tests/UniqueArrayTest.s
+.PHONY : all_files/MtmParkingLot.s
 
 # target to generate assembly for a file
-tests/UniqueArrayTest.cpp.s:
-	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.s
-.PHONY : tests/UniqueArrayTest.cpp.s
+all_files/MtmParkingLot.cpp.s:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.s
+.PHONY : all_files/MtmParkingLot.cpp.s
+
+all_files/ParkingLot.o: all_files/ParkingLot.cpp.o
+
+.PHONY : all_files/ParkingLot.o
+
+# target to build an object file
+all_files/ParkingLot.cpp.o:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.o
+.PHONY : all_files/ParkingLot.cpp.o
+
+all_files/ParkingLot.i: all_files/ParkingLot.cpp.i
+
+.PHONY : all_files/ParkingLot.i
+
+# target to preprocess a source file
+all_files/ParkingLot.cpp.i:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.i
+.PHONY : all_files/ParkingLot.cpp.i
+
+all_files/ParkingLot.s: all_files/ParkingLot.cpp.s
+
+.PHONY : all_files/ParkingLot.s
+
+# target to generate assembly for a file
+all_files/ParkingLot.cpp.s:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.s
+.PHONY : all_files/ParkingLot.cpp.s
+
+all_files/ParkingLotPrinter.o: all_files/ParkingLotPrinter.cpp.o
+
+.PHONY : all_files/ParkingLotPrinter.o
+
+# target to build an object file
+all_files/ParkingLotPrinter.cpp.o:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.o
+.PHONY : all_files/ParkingLotPrinter.cpp.o
+
+all_files/ParkingLotPrinter.i: all_files/ParkingLotPrinter.cpp.i
+
+.PHONY : all_files/ParkingLotPrinter.i
+
+# target to preprocess a source file
+all_files/ParkingLotPrinter.cpp.i:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.i
+.PHONY : all_files/ParkingLotPrinter.cpp.i
+
+all_files/ParkingLotPrinter.s: all_files/ParkingLotPrinter.cpp.s
+
+.PHONY : all_files/ParkingLotPrinter.s
+
+# target to generate assembly for a file
+all_files/ParkingLotPrinter.cpp.s:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.s
+.PHONY : all_files/ParkingLotPrinter.cpp.s
+
+all_files/ParkingSpot.o: all_files/ParkingSpot.cpp.o
+
+.PHONY : all_files/ParkingSpot.o
+
+# target to build an object file
+all_files/ParkingSpot.cpp.o:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.o
+.PHONY : all_files/ParkingSpot.cpp.o
+
+all_files/ParkingSpot.i: all_files/ParkingSpot.cpp.i
+
+.PHONY : all_files/ParkingSpot.i
+
+# target to preprocess a source file
+all_files/ParkingSpot.cpp.i:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.i
+.PHONY : all_files/ParkingSpot.cpp.i
+
+all_files/ParkingSpot.s: all_files/ParkingSpot.cpp.s
+
+.PHONY : all_files/ParkingSpot.s
+
+# target to generate assembly for a file
+all_files/ParkingSpot.cpp.s:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.s
+.PHONY : all_files/ParkingSpot.cpp.s
+
+all_files/Time.o: all_files/Time.cpp.o
+
+.PHONY : all_files/Time.o
+
+# target to build an object file
+all_files/Time.cpp.o:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/Time.cpp.o
+.PHONY : all_files/Time.cpp.o
+
+all_files/Time.i: all_files/Time.cpp.i
+
+.PHONY : all_files/Time.i
+
+# target to preprocess a source file
+all_files/Time.cpp.i:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/Time.cpp.i
+.PHONY : all_files/Time.cpp.i
+
+all_files/Time.s: all_files/Time.cpp.s
+
+.PHONY : all_files/Time.s
+
+# target to generate assembly for a file
+all_files/Time.cpp.s:
+	$(MAKE) -f CMakeFiles/Ex3.dir/build.make CMakeFiles/Ex3.dir/all_files/Time.cpp.s
+.PHONY : all_files/Time.cpp.s
 
 # Help Target
 help:
@@ -159,9 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Ex3"
 	@echo "... edit_cache"
-	@echo "... tests/UniqueArrayTest.o"
-	@echo "... tests/UniqueArrayTest.i"
-	@echo "... tests/UniqueArrayTest.s"
+	@echo "... all_files/MtmParkingLot.o"
+	@echo "... all_files/MtmParkingLot.i"
+	@echo "... all_files/MtmParkingLot.s"
+	@echo "... all_files/ParkingLot.o"
+	@echo "... all_files/ParkingLot.i"
+	@echo "... all_files/ParkingLot.s"
+	@echo "... all_files/ParkingLotPrinter.o"
+	@echo "... all_files/ParkingLotPrinter.i"
+	@echo "... all_files/ParkingLotPrinter.s"
+	@echo "... all_files/ParkingSpot.o"
+	@echo "... all_files/ParkingSpot.i"
+	@echo "... all_files/ParkingSpot.s"
+	@echo "... all_files/Time.o"
+	@echo "... all_files/Time.i"
+	@echo "... all_files/Time.s"
 .PHONY : help
 
 

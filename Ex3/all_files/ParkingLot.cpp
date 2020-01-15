@@ -1,6 +1,11 @@
 #include "ParkingLot.h"
 #include "ParkingLotPrinter.h"
+<<<<<<< HEAD
 #include "UniqueArray.h"
+=======
+#include "../UniqueArray.h"
+namespace MtmParkingLot{
+>>>>>>> 7615c2cf8d4049da682c8d70de97160fe19a968b
 
 namespace MtmParkingLot {
 
@@ -212,6 +217,38 @@ namespace MtmParkingLot {
 		return os;
 	}
 
+<<<<<<< HEAD
 	
 
 }
+=======
+ostream& operator<<(ostream &os, const ParkingLot& parkingLot) {
+    ParkingLotPrinter::printParkingLotTitle(os);
+    for (unsigned int i = 0; i < parkingLot.bikeLot.getSize(); ++i) {
+        Vehicle tempBike= *parkingLot.bikeLot.getElementAtIndex(i);
+        ParkingSpot tempParkingSpot = ParkingSpot(MOTORBIKE, i);
+        ParkingLotPrinter::printVehicle(os, MOTORBIKE, tempBike.getPlate(),
+                                              tempBike.getEntryTime());
+        os << ", ";
+        ParkingLotPrinter::printParkingSpot(os, tempParkingSpot);
+    }
+    for (unsigned int i = 0; i < parkingLot.handicappedLot.getSize(); ++i) {
+        Vehicle tempHandiCapped= *parkingLot.handicappedLot.getElementAtIndex(i);
+        ParkingSpot tempParkingSpot = ParkingSpot(HANDICAPPED, i);
+        ParkingLotPrinter::printVehicle(os, HANDICAPPED, tempHandiCapped.getPlate(),
+                                              tempHandiCapped.getEntryTime());
+        os << ", ";
+        ParkingLotPrinter::printParkingSpot(os, tempParkingSpot);
+    }
+    for (unsigned int i = 0; i < parkingLot.carLot.getSize(); ++i) {
+        Vehicle tempCar = *parkingLot.carLot.getElementAtIndex(i);
+        ParkingSpot tempParkingSpot = ParkingSpot(CAR, i);
+        ParkingLotPrinter::printVehicle(os, CAR, tempCar.getPlate(),
+                                        tempCar.getEntryTime());
+        os << ", ";
+        ParkingLotPrinter::printParkingSpot(os, tempParkingSpot);
+    }
+        return os;
+    }
+}
+>>>>>>> 7615c2cf8d4049da682c8d70de97160fe19a968b

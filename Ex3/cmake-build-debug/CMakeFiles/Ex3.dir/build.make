@@ -57,30 +57,90 @@ include CMakeFiles/Ex3.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Ex3.dir/flags.make
 
-CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.o: CMakeFiles/Ex3.dir/flags.make
-CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.o: ../tests/UniqueArrayTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.o"
-	C:/cygwin64/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.o -c /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/tests/UniqueArrayTest.cpp
+CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.o: CMakeFiles/Ex3.dir/flags.make
+CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.o: ../all_files/MtmParkingLot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.o"
+	C:/cygwin64/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.o -c /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/MtmParkingLot.cpp
 
-CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.i"
-	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/tests/UniqueArrayTest.cpp > CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.i
+CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.i"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/MtmParkingLot.cpp > CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.i
 
-CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.s"
-	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/tests/UniqueArrayTest.cpp -o CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.s
+CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.s"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/MtmParkingLot.cpp -o CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.s
+
+CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.o: CMakeFiles/Ex3.dir/flags.make
+CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.o: ../all_files/ParkingLot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.o"
+	C:/cygwin64/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.o -c /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLot.cpp
+
+CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.i"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLot.cpp > CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.i
+
+CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.s"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLot.cpp -o CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.s
+
+CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.o: CMakeFiles/Ex3.dir/flags.make
+CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.o: ../all_files/ParkingSpot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.o"
+	C:/cygwin64/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.o -c /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingSpot.cpp
+
+CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.i"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingSpot.cpp > CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.i
+
+CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.s"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingSpot.cpp -o CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.s
+
+CMakeFiles/Ex3.dir/all_files/Time.cpp.o: CMakeFiles/Ex3.dir/flags.make
+CMakeFiles/Ex3.dir/all_files/Time.cpp.o: ../all_files/Time.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Ex3.dir/all_files/Time.cpp.o"
+	C:/cygwin64/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ex3.dir/all_files/Time.cpp.o -c /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/Time.cpp
+
+CMakeFiles/Ex3.dir/all_files/Time.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ex3.dir/all_files/Time.cpp.i"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/Time.cpp > CMakeFiles/Ex3.dir/all_files/Time.cpp.i
+
+CMakeFiles/Ex3.dir/all_files/Time.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ex3.dir/all_files/Time.cpp.s"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/Time.cpp -o CMakeFiles/Ex3.dir/all_files/Time.cpp.s
+
+CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.o: CMakeFiles/Ex3.dir/flags.make
+CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.o: ../all_files/ParkingLotPrinter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.o"
+	C:/cygwin64/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.o -c /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLotPrinter.cpp
+
+CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.i"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLotPrinter.cpp > CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.i
+
+CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.s"
+	C:/cygwin64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/all_files/ParkingLotPrinter.cpp -o CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.s
 
 # Object files for target Ex3
 Ex3_OBJECTS = \
-"CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.o"
+"CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.o" \
+"CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.o" \
+"CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.o" \
+"CMakeFiles/Ex3.dir/all_files/Time.cpp.o" \
+"CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.o"
 
 # External object files for target Ex3
 Ex3_EXTERNAL_OBJECTS =
 
-Ex3.exe: CMakeFiles/Ex3.dir/tests/UniqueArrayTest.cpp.o
+Ex3.exe: CMakeFiles/Ex3.dir/all_files/MtmParkingLot.cpp.o
+Ex3.exe: CMakeFiles/Ex3.dir/all_files/ParkingLot.cpp.o
+Ex3.exe: CMakeFiles/Ex3.dir/all_files/ParkingSpot.cpp.o
+Ex3.exe: CMakeFiles/Ex3.dir/all_files/Time.cpp.o
+Ex3.exe: CMakeFiles/Ex3.dir/all_files/ParkingLotPrinter.cpp.o
 Ex3.exe: CMakeFiles/Ex3.dir/build.make
 Ex3.exe: CMakeFiles/Ex3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Ex3.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/d/Study/MATAM/HW3/Ex3/Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Ex3.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Ex3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

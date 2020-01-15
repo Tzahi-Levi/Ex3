@@ -19,7 +19,7 @@ UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other) :  size(oth
 																		currentNumberOfElements(other.currentNumberOfElements),
 																		dataInfo(new bool[other.size]), data(new Element* [other.size]){
 	
-	for (unsigned int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++) {
 		if (other.dataInfo[i])	{
 			data[i] = new Element(*other.data[i]);
 		}
@@ -79,7 +79,7 @@ const Element* UniqueArray<Element, Compare>::operator[](const Element& element)
 template <class Element, class Compare>
 bool UniqueArray<Element, Compare>::remove(const Element& element) {
 	Compare cmp = {};
-	for (unsigned int i = 0; i < size; ++i) {
+	for (int i = 0; i < size; ++i) {
 		if (dataInfo[i] and cmp(*data[i], element)) {
 			dataInfo[i] = false;
 			currentNumberOfElements--;
@@ -113,7 +113,7 @@ UniqueArray<Element, Compare> UniqueArray<Element, Compare>::filter(const Filter
 }
 template <class Element, class Compare>
 bool UniqueArray<Element, Compare>::isFull() const {
-	for (unsigned int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++) {
 		if (dataInfo[i] == false) {
 			return false;
 		}
@@ -121,11 +121,5 @@ bool UniqueArray<Element, Compare>::isFull() const {
 	}
 	return true;
 }
-template <class Element, class Compare>
-Element * UniqueArray<Element, Compare>::getElementAtIndex(unsigned int index) const {
-	if (dataInfo[index] == false) {
-		return NULL;
-	}
-	return data[index];
-}
+
 #endif //EX3_UNIQUEARRAYIMP_H
