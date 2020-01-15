@@ -4,7 +4,7 @@
 namespace MtmParkingLot{
 
 ParkingLot::ParkingLot(unsigned int parkingBlockSizes[]) :
-	bikeLot(parkingBlockSizes[0]), handicappedLot(parkingBlockSizes[1]), carLot(parkingBlockSizes[2])
+	bikeLot(parkingBlockSizes[0]), handicappedLot(parkingBlockSizes[2]), carLot(parkingBlockSizes[2])
 {}
 
 ParkingLot::~ParkingLot() {
@@ -60,15 +60,17 @@ ParkingResult ParkingLot::enterParking(VehicleType vehicleType, LicensePlate lic
 
 ParkingResult ParkingLot::enterHandicapped(Vehicle newCar, Time entranceTime) {
 	unsigned int index;
+	ParkingSpot tempSpot = ParkingSpot();
+	
 	if (!handicappedLot.isFull()) {
-        index = handicappedLot.insert(newCar);
-        ParkingSpot spot = ParkingSpot(HANDICAPPED, index);
-        newCar.printVehicle(std::cout);
-        ParkingLotPrinter::printEntrySuccess(std::cout, spot);
-        return SUCCESS;
-
+		index = handicappedLot.insert(newCar);
+		ParkingSpot spot = ParkingSpot(HANDICAPPED, index);
+		newCar.printVehicle(std::cout);
+		ParkingLotPrinter::printEntrySuccess(std::cout, spot);
+		return SUCCESS;
 	}
-    return enterNormalCar(newCar, entranceTime);
+	
+	return enterNormalCar(newCar, entranceTime);
 }
 
 ParkingResult ParkingLot::enterNormalCar(Vehicle newCar, Time entranceTime) {
@@ -139,8 +141,8 @@ ParkingResult ParkingLot::exitParking(LicensePlate licensePlate, Time exitTime) 
 	if (tempCarPointer) {
 		carLot.getIndex(*tempCarPointer, parkingIndex);
 		if (carLot.remove(*tempCarPointer)) {
-			ParkingLotPrinter::printVehicle(std::cout, (*tempCarPointer).getType(), licensePlate, (*tempCarPointer).getEntryTime());
-			ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot((*tempCarPointer).getType(), parkingIndex), exitTime,
+			ParkingLotPrinter::printVehicle(std::cout, CAR, licensePlate, (*tempCarPointer).getEntryTime());
+			ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot(CAR, parkingIndex), exitTime,
 				(*tempCarPointer).getPrice(exitTime));
 				return SUCCESS;
 		}
@@ -149,8 +151,8 @@ ParkingResult ParkingLot::exitParking(LicensePlate licensePlate, Time exitTime) 
 	if (tempBikePointer) {
 		bikeLot.getIndex(*tempBikePointer, parkingIndex);
 		if (bikeLot.remove(*tempBikePointer)) {
-			ParkingLotPrinter::printVehicle(std::cout, (*tempCarPointer).getType(), licensePlate, (*tempBikePointer).getEntryTime());
-			ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot((*tempCarPointer).getType(), parkingIndex), exitTime,
+			ParkingLotPrinter::printVehicle(std::cout, MOTORBIKE, licensePlate, (*tempBikePointer).getEntryTime());
+			ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot(MOTORBIKE, parkingIndex), exitTime,
 				(*tempBikePointer).getPrice(exitTime));
 				return SUCCESS;
 		}
@@ -159,8 +161,8 @@ ParkingResult ParkingLot::exitParking(LicensePlate licensePlate, Time exitTime) 
 	if (tempHandiPointer) {
 		handicappedLot.getIndex(*tempHandiPointer, parkingIndex);
 		if (handicappedLot.remove(*tempHandiPointer)) {
-			ParkingLotPrinter::printVehicle(std::cout, (*tempCarPointer).getType(), licensePlate, (*tempHandiPointer).getEntryTime());
-			ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot((*tempCarPointer).getType(), parkingIndex), exitTime,
+			ParkingLotPrinter::printVehicle(std::cout, HANDICAPPED, licensePlate, (*tempHandiPointer).getEntryTime());
+			ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot(HANDICAPPED, parkingIndex), exitTime,
 				(*tempHandiPointer).getPrice(exitTime));
 				return SUCCESS;
 		}
