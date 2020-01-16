@@ -37,10 +37,17 @@ namespace ParkingLotUtils {
 				this->firstHourParkingRate = HANDICAPPED_INITIAL;
 				this->generalParkingRate = HANDICAPPED_PER_HOUR;
 			}
+<<<<<<< HEAD
 			if (type == MOTORBIKE) {
 				this->firstHourParkingRate = MOTORBIKE_INITIAL;
 				this->generalParkingRate = MOTORBIKE_PER_HOUR;
 			}
+=======
+			if(type == MOTORBIKE) {
+                this->firstHourParkingRate = MOTORBIKE_INITIAL;
+                this->generalParkingRate = MOTORBIKE_PER_HOUR;
+            }
+>>>>>>> c1d13c987b3bbe0c51e257e21a507b5f53195d35
 		};
 
 		bool operator==(const Vehicle& other)const {
@@ -53,7 +60,11 @@ namespace ParkingLotUtils {
 			if (fined) {
 				fine = FINE_COST;
 			}
+<<<<<<< HEAD
 			if (stayTime.toHours() == 0) {
+=======
+			if (stayTime.toHours() <= 1) {
+>>>>>>> c1d13c987b3bbe0c51e257e21a507b5f53195d35
 				return firstHourParkingRate + fine;
 			}
 			if (stayTime.toHours() > MAX_PAYING_HOURS - 1) {// at least 6
@@ -83,7 +94,11 @@ namespace ParkingLotUtils {
 		}
 
 		VehicleType getType() const {
+<<<<<<< HEAD
 			return type;
+=======
+            return type;
+>>>>>>> c1d13c987b3bbe0c51e257e21a507b5f53195d35
 		}
 	};
 }
