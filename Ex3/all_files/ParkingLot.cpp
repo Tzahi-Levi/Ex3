@@ -11,7 +11,6 @@ namespace MtmParkingLot {
 				ParkingSpot tempParkingSpot = ParkingSpot(type, i);
 				ParkingLotPrinter::printVehicle(os, tempCar.getType(), tempCar.getPlate(),
 					tempCar.getEntryTime());
-				os << ", ";
 				ParkingLotPrinter::printParkingSpot(os, tempParkingSpot);
 			}
 		}
@@ -46,7 +45,7 @@ namespace MtmParkingLot {
 				return SUCCESS;
 			}
 		}
-
+   return VEHICLE_NOT_FOUND;
 	}
 
 	ParkingLot::ParkingLot(unsigned int parkingBlockSizes[]) :
@@ -153,43 +152,6 @@ namespace MtmParkingLot {
 	}
 
 	ParkingResult ParkingLot::exitParking(LicensePlate licensePlate, Time exitTime) {
-		/*
-		Time tempEntrance = Time();
-		Vehicle tempVehicle = Vehicle(licensePlate, tempEntrance, CAR);
-		const Vehicle* tempCarPointer = carLot[tempVehicle];
-		unsigned int parkingIndex;
-		if (tempCarPointer) {
-			carLot.getIndex(*tempCarPointer, parkingIndex);
-			if (carLot.remove(*tempCarPointer)) {
-				ParkingLotPrinter::printVehicle(std::cout, (*tempCarPointer).getType(), licensePlate, (*tempCarPointer).getEntryTime());
-				ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot(CAR, parkingIndex), exitTime,
-					(*tempCarPointer).getPrice(exitTime));
-				return SUCCESS;
-			}
-		}
-		const Vehicle* tempBikePointer = bikeLot[tempVehicle];
-		if (tempBikePointer) {
-			bikeLot.getIndex(*tempBikePointer, parkingIndex);
-			if (bikeLot.remove(*tempBikePointer)) {
-				ParkingLotPrinter::printVehicle(std::cout, MOTORBIKE, licensePlate, (*tempBikePointer).getEntryTime());
-				ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot(MOTORBIKE, parkingIndex), exitTime,
-					(*tempBikePointer).getPrice(exitTime));
-				return SUCCESS;
-			}
-		}
-		const Vehicle* tempHandiPointer = handicappedLot[tempVehicle];
-		if (tempHandiPointer) {
-			handicappedLot.getIndex(*tempHandiPointer, parkingIndex);
-			if (handicappedLot.remove(*tempHandiPointer)) {
-				ParkingLotPrinter::printVehicle(std::cout, HANDICAPPED, licensePlate, (*tempHandiPointer).getEntryTime());
-				ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot(HANDICAPPED, parkingIndex), exitTime,
-					(*tempHandiPointer).getPrice(exitTime));
-				return SUCCESS;
-			}
-		}
-		ParkingLotPrinter::printExitFailure(std::cout, licensePlate);
-		return VEHICLE_NOT_FOUND;
-		*/
 		if (exitFromCarArray(carLot, licensePlate, CAR, exitTime) == SUCCESS) {
 			return SUCCESS;
 		}
@@ -200,6 +162,7 @@ namespace MtmParkingLot {
 			return SUCCESS;
 		}
 		ParkingLotPrinter::printExitFailure(std::cout, licensePlate);
+   return VEHICLE_NOT_FOUND;
 	}
 
 	ostream& operator<<(ostream& os, const ParkingLot& parkingLot) {
@@ -209,7 +172,4 @@ namespace MtmParkingLot {
 		printCarArray(os, parkingLot.carLot,CAR);
 		return os;
 	}
-
-	
-
 }

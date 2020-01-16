@@ -8,16 +8,16 @@
 #include <functional>
 
 template <class Element, class Compare>
-UniqueArray<Element, Compare>::UniqueArray(unsigned int size) : size(size), nextIndex(0), currentNumberOfElements(0),
-																dataInfo(new bool[size]), data(new Element* [size]) {
+UniqueArray<Element, Compare>::UniqueArray(unsigned int size) : size(size), data(new Element* [size]),dataInfo(new bool[size]),
+                                                                currentNumberOfElements(0){
 	for (unsigned int i = 0; i < size; i++) {
 		dataInfo[i] = false;
 	}
 }
 template <class Element, class Compare>
-UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other) :  size(other.size), nextIndex(other.nextIndex),
-																		currentNumberOfElements(other.currentNumberOfElements),
-																		dataInfo(new bool[other.size]), data(new Element* [other.size]){
+UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other) :  size(other.size),
+                                                                        data(new Element* [other.size]),dataInfo(new bool[other.size]),
+																		                                    currentNumberOfElements(other.currentNumberOfElements){
 	
 	for (unsigned int i = 0; i < size; i++) {
 		if (other.dataInfo[i])	{

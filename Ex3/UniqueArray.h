@@ -8,7 +8,6 @@ class UniqueArray {
 	unsigned int size;
 	Element** data;
 	bool* dataInfo;
-	int nextIndex;
 	int currentNumberOfElements;
 public:
 	UniqueArray(unsigned int size);
