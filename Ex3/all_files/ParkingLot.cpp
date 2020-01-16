@@ -1,6 +1,5 @@
 #include "ParkingLot.h"
 #include "ParkingLotPrinter.h"
-<<<<<<< HEAD
 #include "UniqueArray.h"
 
 namespace MtmParkingLot {
@@ -47,20 +46,12 @@ namespace MtmParkingLot {
 				return SUCCESS;
 			}
 		}
+
 	}
 
 	ParkingLot::ParkingLot(unsigned int parkingBlockSizes[]) :
 		bikeLot(parkingBlockSizes[0]), handicappedLot(parkingBlockSizes[1]), carLot(parkingBlockSizes[2])
 	{}
-=======
-#include "../UniqueArray.h"
-namespace MtmParkingLot {
-    ParkingLot::ParkingLot(unsigned int parkingBlockSizes[]) :
-            bikeLot(parkingBlockSizes[0]), handicappedLot(parkingBlockSizes[1]), carLot(parkingBlockSizes[2])
-    {}
-    ParkingLot::~ParkingLot() {
-    }
->>>>>>> c1d13c987b3bbe0c51e257e21a507b5f53195d35
 
 	ParkingResult ParkingLot::getParkingSpot(LicensePlate licensePlate, ParkingSpot& parkingSpot) const {
 		Vehicle newCar = Vehicle(licensePlate, Time(), CAR);
@@ -166,18 +157,12 @@ namespace MtmParkingLot {
 		Time tempEntrance = Time();
 		Vehicle tempVehicle = Vehicle(licensePlate, tempEntrance, CAR);
 		const Vehicle* tempCarPointer = carLot[tempVehicle];
-        ParkingSpot tempParking = ParkingSpot();
-        getParkingSpot(licensePlate,tempParking);
 		unsigned int parkingIndex;
 		if (tempCarPointer) {
 			carLot.getIndex(*tempCarPointer, parkingIndex);
 			if (carLot.remove(*tempCarPointer)) {
 				ParkingLotPrinter::printVehicle(std::cout, (*tempCarPointer).getType(), licensePlate, (*tempCarPointer).getEntryTime());
-<<<<<<< HEAD
 				ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot(CAR, parkingIndex), exitTime,
-=======
-				ParkingLotPrinter::printExitSuccess(std::cout, tempParking, exitTime,
->>>>>>> c1d13c987b3bbe0c51e257e21a507b5f53195d35
 					(*tempCarPointer).getPrice(exitTime));
 				return SUCCESS;
 			}
@@ -186,19 +171,18 @@ namespace MtmParkingLot {
 		if (tempBikePointer) {
 			bikeLot.getIndex(*tempBikePointer, parkingIndex);
 			if (bikeLot.remove(*tempBikePointer)) {
-				ParkingLotPrinter::printVehicle(std::cout, (*tempBikePointer).getType(), licensePlate, (*tempBikePointer).getEntryTime());
-				ParkingLotPrinter::printExitSuccess(std::cout, tempParking, exitTime,
+				ParkingLotPrinter::printVehicle(std::cout, MOTORBIKE, licensePlate, (*tempBikePointer).getEntryTime());
+				ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot(MOTORBIKE, parkingIndex), exitTime,
 					(*tempBikePointer).getPrice(exitTime));
 				return SUCCESS;
 			}
 		}
 		const Vehicle* tempHandiPointer = handicappedLot[tempVehicle];
-        getParkingSpot(licensePlate,tempParking);
 		if (tempHandiPointer) {
 			handicappedLot.getIndex(*tempHandiPointer, parkingIndex);
 			if (handicappedLot.remove(*tempHandiPointer)) {
-				ParkingLotPrinter::printVehicle(std::cout, (*tempHandiPointer).getType(), licensePlate, (*tempHandiPointer).getEntryTime());
-				ParkingLotPrinter::printExitSuccess(std::cout, tempParking, exitTime,
+				ParkingLotPrinter::printVehicle(std::cout, HANDICAPPED, licensePlate, (*tempHandiPointer).getEntryTime());
+				ParkingLotPrinter::printExitSuccess(std::cout, ParkingSpot(HANDICAPPED, parkingIndex), exitTime,
 					(*tempHandiPointer).getPrice(exitTime));
 				return SUCCESS;
 			}
@@ -212,12 +196,14 @@ namespace MtmParkingLot {
 		if (exitFromCarArray(bikeLot, licensePlate, MOTORBIKE, exitTime) == SUCCESS) {
 			return SUCCESS;
 		}
-		return exitFromCarArray(handicappedLot, licensePlate, HANDICAPPED, exitTime);
+		if (exitFromCarArray(handicappedLot, licensePlate, HANDICAPPED, exitTime) == SUCCESS) {
+			return SUCCESS;
+		}
+		ParkingLotPrinter::printExitFailure(std::cout, licensePlate);
 	}
 
 	ostream& operator<<(ostream& os, const ParkingLot& parkingLot) {
 		ParkingLotPrinter::printParkingLotTitle(os);
-<<<<<<< HEAD
 		printCarArray(os, parkingLot.bikeLot,MOTORBIKE);
 		printCarArray(os, parkingLot.handicappedLot,HANDICAPPED);
 		printCarArray(os, parkingLot.carLot,CAR);
@@ -227,43 +213,3 @@ namespace MtmParkingLot {
 	
 
 }
-=======
-		for (unsigned int i = 0; i < parkingLot.bikeLot.getSize(); ++i) {
-			Vehicle* tempBikePointer = parkingLot.bikeLot.getElementAtIndex(i);
-			if (tempBikePointer) {
-				Vehicle tempBike = *tempBikePointer;
-				ParkingSpot tempParkingSpot = ParkingSpot(MOTORBIKE, i);
-				ParkingLotPrinter::printVehicle(os, tempBike.getType(), tempBike.getPlate(),
-					tempBike.getEntryTime());
-				os << ", ";
-				ParkingLotPrinter::printParkingSpot(os, tempParkingSpot);
-			}
-		}
-		for (unsigned int i = 0; i < parkingLot.handicappedLot.getSize(); ++i) {
-
-			Vehicle* tempHandiCappedPointer = parkingLot.handicappedLot.getElementAtIndex(i);
-			if (tempHandiCappedPointer) {
-				Vehicle tempHandiCapped = *tempHandiCappedPointer;
-				ParkingSpot tempParkingSpot = ParkingSpot(HANDICAPPED, i);
-				ParkingLotPrinter::printVehicle(os, tempHandiCapped.getType(), tempHandiCapped.getPlate(),
-					tempHandiCapped.getEntryTime());
-				os << ", ";
-				ParkingLotPrinter::printParkingSpot(os, tempParkingSpot);
-			}
-		}
-		for (unsigned int i = 0; i < parkingLot.carLot.getSize(); ++i) {
-			Vehicle* tempCarPointer = parkingLot.carLot.getElementAtIndex(i);
-			if (tempCarPointer) {
-				Vehicle tempCar = *tempCarPointer;
-				ParkingSpot tempParkingSpot = ParkingSpot(CAR, i);
-				ParkingLotPrinter::printVehicle(os, tempCar.getType(), tempCar.getPlate(),
-					tempCar.getEntryTime());
-				os << ", ";
-				ParkingLotPrinter::printParkingSpot(os, tempParkingSpot);
-			}
-		}
-		return os;
-	}
-}
-
->>>>>>> c1d13c987b3bbe0c51e257e21a507b5f53195d35
