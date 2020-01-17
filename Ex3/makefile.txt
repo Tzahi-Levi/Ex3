@@ -1,0 +1,19 @@
+CC = g++
+OBJS = MtmParkingLot.o ParkingLot.o Time.o ParkingSpot.o ParkingLotPrinter.o
+EXEC = MtmParkingLot
+DEBUG = -DNDBUG
+CFLAGS = -std=c++11 -Wall -Werror -pedantic-errors $(DEBUG)
+$(EXEC) : $(OBJS)
+	$(CC) $(CFLAGS) -o $@ *.cpp
+MtmParkingLot.o : MtmParkingLot.cpp ParkingLotTypes.h Time.h ParkingLotPrinter.h ParkingSpot.h ParkingLot.h UniqueArray.h UniqueArrayImp.h Vehicle.h
+	g++ -c MtmParkingLot.cpp
+ParkingLot.o : ParkingLot.cpp ParkingLot.h ParkingLotTypes.h Time.h ParkingSpot.h UniqueArray.h UniqueArrayImp.h Vehicle.h
+	g++ -c ParkingLot.cpp
+ParkingLotPrinter.o : ParkingLotPrinter.cpp ParkingLotPrinter.h Time.h ParkingSpot.h ParkingLotTypes.h
+	g++ -c ParkingLotPrinter.cpp
+ParkingSpot.o : ParkingSpot.cpp ParkingSpot.h ParkingLotTypes.h
+	g++ -c ParkingSpot.cpp
+Time.o : Time.cpp Time.h
+	g++ -c Time.cpp
+clean:
+	rm  -f $(OBJS) $(EXEC)
