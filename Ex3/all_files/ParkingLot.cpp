@@ -3,16 +3,41 @@
 #include "UniqueArray.h"
 
 namespace MtmParkingLot {
-	static ostream& printCarArray(ostream& os, const CarArray& arr, VehicleType type) {
-		for (unsigned int i = 0; i < arr.getSize(); ++i) {
-			Vehicle* tempCarPointer = arr.getElementAtIndex(i);
-			if (tempCarPointer) {
-				Vehicle tempCar = *tempCarPointer;
-				ParkingSpot tempParkingSpot = ParkingSpot(type, i);
-				ParkingLotPrinter::printVehicle(os, tempCar.getType(), tempCar.getPlate(),
-					tempCar.getEntryTime());
-				ParkingLotPrinter::printParkingSpot(os, tempParkingSpot);
+
+	static unsigned int findCarrArrayMinIndex(const CarArray& arr, VehicleType type) {
+		if (arr.getCount() == 0) {
+			return -1;
+		}
+		int k = 0;
+		while (arr.getElementAtIndex(k) == NULL) {
+			k++;
+		}
+		int maxIndex = k;
+		for (unsigned int i = k+1; i < arr.getSize(); i++) {
+			if (arr.getElementAtIndex(i) != NULL and ParkingSpot(type, i) < ParkingSpot(type,maxIndex)) {
+				maxIndex = i;
 			}
+		}
+		return maxIndex;
+	}
+
+	static void removingSmallestAndPrinting(ostream& os, CarArray& arr, Vehicle& car, VehicleType type, ParkingSpot spot) {
+		ParkingLotPrinter::printVehicle(os, type, car.getPlate(), car.getEntryTime());
+		ParkingLotPrinter::printParkingSpot(os, spot);
+		arr.remove(car);
+	}
+
+	static ostream& carArrayPrintAndDelete(ostream& os, CarArray& arr, VehicleType type) {
+		int minIndex = findCarrArrayMinIndex(arr, type);
+		while (minIndex > -1) {
+			Vehicle car = *(arr.getElementAtIndex(minIndex));
+			ParkingLotPrinter::printVehicle(os, car.getType(),
+				car.getPlate(),
+				car.getEntryTime());
+			ParkingLotPrinter::printParkingSpot(os, ParkingSpot(type, minIndex));
+			arr.remove(car);
+			minIndex = findCarrArrayMinIndex(arr, type);
+
 		}
 		return os;
 	}
@@ -45,7 +70,7 @@ namespace MtmParkingLot {
 				return SUCCESS;
 			}
 		}
-   return VEHICLE_NOT_FOUND;
+		return VEHICLE_NOT_FOUND;
 	}
 
 	ParkingLot::ParkingLot(unsigned int parkingBlockSizes[]) :
@@ -162,14 +187,103 @@ namespace MtmParkingLot {
 			return SUCCESS;
 		}
 		ParkingLotPrinter::printExitFailure(std::cout, licensePlate);
-   return VEHICLE_NOT_FOUND;
+		return VEHICLE_NOT_FOUND;
 	}
 
 	ostream& operator<<(ostream& os, const ParkingLot& parkingLot) {
 		ParkingLotPrinter::printParkingLotTitle(os);
-		printCarArray(os, parkingLot.bikeLot,MOTORBIKE);
-		printCarArray(os, parkingLot.handicappedLot,HANDICAPPED);
-		printCarArray(os, parkingLot.carLot,CAR);
-		return os;
+		int minCarIndex = findCarrArrayMinIndex(parkingLot.carLot,CAR);
+		int minBikeIndex = findCarrArrayMinIndex(parkingLot.bikeLot, MOTORBIKE);
+		int minHandiIndex = findCarrArrayMinIndex(parkingLot.handicappedLot, HANDICAPPED);
+
+		CarArray copyCars = CarArray(parkingLot.carLot);
+		CarArray copyBike = CarArray(parkingLot.bikeLot);
+		CarArray copyHandi = CarArray(parkingLot.handicappedLot);
+
+		while (minBikeIndex > -1 and minCarIndex > -1 and minHandiIndex > -1) {
+
+			if (ParkingSpot(HANDICAPPED, minHandiIndex) < ParkingSpot(CAR, minCarIndex) and
+				ParkingSpot(HANDICAPPED, minHandiIndex) < ParkingSpot(MOTORBIKE, minBikeIndex)) {
+				removingSmallestAndPrinting(
+					os, copyHandi, *copyHandi.getElementAtIndex(minHandiIndex), HANDICAPPED, ParkingSpot(HANDICAPPED, minHandiIndex));
+					minHandiIndex = findCarrArrayMinIndex(copyHandi, HANDICAPPED);
+
+			}
+			if (ParkingSpot(CAR, minCarIndex) < ParkingSpot(MOTORBIKE, minBikeIndex) and
+				ParkingSpot(CAR, minCarIndex) < ParkingSpot(HANDICAPPED, minHandiIndex)) {
+				removingSmallestAndPrinting(
+					os, copyCars, *copyCars.getElementAtIndex(minCarIndex),
+					(*copyCars.getElementAtIndex(minCarIndex)).getType(), ParkingSpot(CAR, minCarIndex));
+				minCarIndex = findCarrArrayMinIndex(copyCars, CAR);
+
+			}
+			if (ParkingSpot(MOTORBIKE, minBikeIndex) < ParkingSpot(HANDICAPPED, minHandiIndex) and
+				ParkingSpot(MOTORBIKE, minBikeIndex) < ParkingSpot(CAR, minCarIndex)) {
+				removingSmallestAndPrinting(
+					os, copyBike, *copyBike.getElementAtIndex(minBikeIndex), MOTORBIKE, ParkingSpot(MOTORBIKE, minBikeIndex));
+				minBikeIndex = findCarrArrayMinIndex(copyBike, MOTORBIKE);
+
+			}
+		}
+		if (minCarIndex == -1) {
+			while (minBikeIndex > -1 and minHandiIndex > -1) {
+				if (ParkingSpot(MOTORBIKE, minBikeIndex) < ParkingSpot(HANDICAPPED, minHandiIndex)){
+					removingSmallestAndPrinting(
+						os, copyBike, *copyBike.getElementAtIndex(minBikeIndex), MOTORBIKE, ParkingSpot(MOTORBIKE, minBikeIndex));
+					minBikeIndex = findCarrArrayMinIndex(copyBike, MOTORBIKE);
+				}
+				else {
+					removingSmallestAndPrinting(
+						os, copyHandi, *copyHandi.getElementAtIndex(minHandiIndex), HANDICAPPED, ParkingSpot(HANDICAPPED, minHandiIndex));
+					minHandiIndex = findCarrArrayMinIndex(copyHandi, HANDICAPPED);
+				}
+			}
+			if (minBikeIndex == -1) {
+				return carArrayPrintAndDelete(os, copyHandi, HANDICAPPED);
+			}
+			else return carArrayPrintAndDelete(os, copyBike, MOTORBIKE);
+
+		}
+		if (minBikeIndex == -1) {
+			while (minCarIndex > -1 and minHandiIndex > -1) {
+				if (ParkingSpot(CAR, minCarIndex) < ParkingSpot(HANDICAPPED, minHandiIndex)) {
+					removingSmallestAndPrinting(
+						os, copyCars, *copyCars.getElementAtIndex(minCarIndex),
+						(*copyCars.getElementAtIndex(minCarIndex)).getType(), ParkingSpot(CAR, minCarIndex));
+					minCarIndex = findCarrArrayMinIndex(copyCars, CAR);
+				}
+				else {
+					removingSmallestAndPrinting(
+						os, copyHandi, *copyHandi.getElementAtIndex(minHandiIndex), HANDICAPPED, ParkingSpot(HANDICAPPED, minHandiIndex));
+					minHandiIndex = findCarrArrayMinIndex(copyHandi, HANDICAPPED);
+				}
+			}
+			if (minCarIndex == -1) {
+				return carArrayPrintAndDelete(os, copyHandi, HANDICAPPED);
+			}
+			else return carArrayPrintAndDelete(os, copyCars, CAR);
+
+		} //handi index == -1
+		while (minCarIndex > -1 and minBikeIndex > -1) {
+			if (ParkingSpot(CAR, minCarIndex) < ParkingSpot(MOTORBIKE, minBikeIndex)) {
+				removingSmallestAndPrinting(
+					os, copyCars, *copyCars.getElementAtIndex(minCarIndex),
+					(*copyCars.getElementAtIndex(minCarIndex)).getType(), ParkingSpot(CAR, minCarIndex));
+				minCarIndex = findCarrArrayMinIndex(copyCars, CAR);
+			}
+			else {
+				removingSmallestAndPrinting(
+					os, copyBike, *copyBike.getElementAtIndex(minBikeIndex), MOTORBIKE, ParkingSpot(MOTORBIKE, minBikeIndex));
+				minBikeIndex = findCarrArrayMinIndex(copyBike, MOTORBIKE);
+			}
+		}
+		if (minCarIndex == -1) {
+			return carArrayPrintAndDelete(os, copyBike, MOTORBIKE);
+		}
+		return carArrayPrintAndDelete(os, copyCars, CAR);
+
 	}
+	
+	
+
 }
